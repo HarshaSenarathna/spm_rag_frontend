@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes, Link } from 'react-router-dom';
+import { Layout, Menu } from 'antd';
+import ChatPage from './pages/ChatPage';
+import UploadPage from './pages/UploadPage';
+
+const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Header>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['chat']}>
+          <Menu.Item key="chat">
+            <Link to="/">Chat</Link>
+          </Menu.Item>
+          <Menu.Item key="upload">
+            <Link to="/upload">Upload PDF</Link>
+          </Menu.Item>
+        </Menu>
+      </Header>
+      <Content style={{ padding: '20px' }}>
+        <Routes>
+          <Route path="/" element={<ChatPage />} />
+          <Route path="/upload" element={<UploadPage />} />
+        </Routes>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>Chat App ©2024</Footer>
+    </Layout>
   );
 }
 
