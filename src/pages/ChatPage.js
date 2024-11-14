@@ -40,7 +40,7 @@ function ChatPage() {
         height: 'fit-content',
       }}>
       <Typography.Title level={2} style={{ textAlign: 'center' }}>
-        Chat
+        Agile Process Assistant
       </Typography.Title>
       <div style={{ padding: '10px 20px' }}>
         <Search
